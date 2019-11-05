@@ -8,11 +8,15 @@ public class ProductByRatingComparator implements Comparator<Product> {
 
     @Override
     public int compare(Product a, Product b) {
-        if (a.getRating() == b.getRating())
+        if (a.getRating() == b.getRating()) {
             return 0;
-        else if (a.getRating() < b.getRating())
+        }
+        else if (a.getRating() < b.getRating()) {
             return 1;
+        }
         else
+        {
             return -1;
+        }
     }
 }

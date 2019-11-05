@@ -2,8 +2,8 @@ package ru.itpark;
 
 import ru.itpark.model.Product;
 import ru.itpark.service.ProductService;
-import ru.itpark.util.ProductByNameComparator;
-import ru.itpark.util.ProductByRatingComparator;
+import ru.itpark.comparator.ProductByNameComparator;
+import ru.itpark.comparator.ProductByRatingComparator;
 
 import java.util.List;
 

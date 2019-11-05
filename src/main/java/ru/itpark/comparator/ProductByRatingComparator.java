@@ -1,4 +1,4 @@
-package ru.itpark.util;
+package ru.itpark.comparator;
 
 import ru.itpark.model.Product;
 

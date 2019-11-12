@@ -7,7 +7,6 @@ import ru.itpark.comparator.ProductByRatingComparator;
 
 import java.util.List;
 
-
 public class Main {
     public static void main(String[] args) {
         ProductService service = new ProductService();
@@ -22,29 +21,26 @@ public class Main {
                 new Product(8, "Pots", "Apple", "ChinChin", 199, 4.9)
         );
         int maxResults = 3;
-        List<Product> resultName = service.searchByName("Disney");
+        List<Product> resultName = service.searchByName("Disney", "Featured");
         int totalMatches = resultName.size();
         if (totalMatches > maxResults) {
             resultName = resultName.subList(0, maxResults);
         }
-        System.out.println("Unsorted list by name: " + resultName);
-        resultName.sort(Product::compareTo);
-        System.out.println("Sorted list by price: " + resultName);
-        resultName.sort(new ProductByRatingComparator());
-        System.out.println("Sorted list by rating: " + resultName);
+        System.out.println("Name Sorted list by rating: " + resultName);
 
-        List<Product> resultCategory = service.searchByCategory("pots");
+        List<Product> resultCategory = service.searchByCategory("pots", "Price - Low to High");
         int totalMatches2 = resultCategory.size();
         if (totalMatches2 > maxResults) {
             resultCategory = resultCategory.subList(0, maxResults);
         }
-        System.out.println("Unsorted list by category: " + resultCategory);
-        resultCategory.sort(new ProductByRatingComparator());
-        System.out.println("Sorted list by rating: " + resultCategory);
-        resultCategory.sort(Product::compareTo);
-        System.out.println("Sorted list by price: " + resultCategory);
-        resultCategory.sort(new ProductByNameComparator());
-        System.out.println("Sorted list by name: " + resultCategory);
+        System.out.println("Category Sorted list by price: " + resultCategory);
+
+        List<Product> resultCategory2 = service.searchByCategory("pots", "A-Z");
+        int totalMatches3 = resultCategory2.size();
+        if (totalMatches3 > maxResults) {
+            resultCategory2 = resultCategory2.subList(0, maxResults);
+        }
+        System.out.println("Category Sorted list by name: " + resultCategory);
 
     }
 }
